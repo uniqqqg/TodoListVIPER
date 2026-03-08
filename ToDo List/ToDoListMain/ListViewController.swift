@@ -102,11 +102,15 @@ class ListViewController: UIViewController, TodoListViewInput {
 	}
 	
 	func setupToolbar() {
-			let countLabel = UIBarButtonItem(title: "\(todosArray.count) Задач", style: .plain, target: nil, action: nil)
+		let countLabel = UIBarButtonItem(title: "\(todosArray.count) Задач", style: .plain, target: nil, action: nil)
+		countLabel.tintColor = .gray
 		let addButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(addTask))
+		addButton.tintColor = .systemYellow
 		let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-		toolbarItems = [countLabel, spacer, addButton]
+		toolbarItems = [spacer, countLabel, spacer, addButton]
 		navigationController?.isToolbarHidden = false
+		navigationController?.toolbar.barTintColor = .black
+		navigationController?.toolbar.backgroundColor = .black
 	}
 	
 	@objc func addTask() {
