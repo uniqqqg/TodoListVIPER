@@ -82,7 +82,7 @@ class ListViewController: UIViewController, TodoListViewInput {
 			self.todosArray = todos
 			self.originalArray = todos
 			self.tableView.reloadData()
-			self.toolbarItems?.first?.title = "\(todos.count) Задач"
+			self.toolbarItems?[1].title = "\(todos.count) Задач"
 		}
 	}
 	
