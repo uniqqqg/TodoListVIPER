@@ -159,10 +159,12 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate, UISear
 		
 		cell.onCheckmarkTapped = { [weak self] in
 			guard let self else { return }
-			self.todosArray[indexPath.row].completed.toggle()
-			self.originalArray[indexPath.row].completed.toggle()
-			self.tableView.reloadRows(at: [indexPath], with: .automatic)
-			CoreDataManager.shared.updateTask(self.todosArray[indexPath.row])
+			guard let currentIndexPath = tableView.indexPath(for: cell) else { return }
+			self.todosArray[currentIndexPath.row].completed.toggle()
+			self.originalArray[currentIndexPath.row].completed.toggle()
+			CoreDataManager.shared.updateTask(self.todosArray[currentIndexPath.row])
+			self.tableView.reloadRows(at: [currentIndexPath], with: .automatic)
+		
 		}
 		return cell
 	}
@@ -184,7 +186,8 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate, UISear
 				self.todosArray.remove(at: indexPath.row)
 				self.originalArray.remove(at: indexPath.row)
 				tableView.deleteRows(at: [indexPath], with: .automatic)
-				self.toolbarItems?.first?.title = "\(self.todosArray.count) Задач"
+				self.toolbarItems?[1].title = "\(self.todosArray.count) Задач"
+			
 			}
 			let edit = UIAction(title: "Редактировать", image: UIImage(systemName: "pencil")) { _ in
 				self.output.navigateToDetailView(todos: self.todosArray[indexPath.row]) { [weak self] updatedTask in
