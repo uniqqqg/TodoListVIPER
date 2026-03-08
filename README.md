@@ -1,6 +1,9 @@
 Скриншоты приложения
 
 
+![IMAGE 2026-03-09 00:24:24](https://github.com/user-attachments/assets/83a43a06-533c-4589-9ea2-15b3b03d690a)
+![IMAGE 2026-03-09 00:24:34](https://github.com/user-attachments/assets/5d40a83e-87dc-40ff-beaa-3a428035691a)
+![IMAGE 2026-03-09 00:24:39](https://github.com/user-attachments/assets/cb445e2f-3c9a-46bf-b220-23a8cf216449)
 
 
 Особенности проекта
